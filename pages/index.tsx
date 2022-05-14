@@ -5,7 +5,7 @@ import { lazy, Suspense } from "react";
 
 const SceneComponent = lazy(() => import("../components/Scene"));
 
-const Home: NextPage = () => {
+const Home: NextPage = (props: any) => {
   return (
     <div>
       <Head>
@@ -14,10 +14,20 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Suspense fallback={"Loading . . ."}>
-        <SceneComponent />
+        <SceneComponent props={props} />
       </Suspense>
     </div>
   );
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      devMode:
+        process.env.NODE_ENV === "development" ||
+        process.env.VERCEL_ENV === "preview",
+    },
+  };
+}

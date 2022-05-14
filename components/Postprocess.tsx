@@ -4,7 +4,7 @@ import { useControls } from "leva";
 export default function Postprocess() {
   const { bloomThreshold, bloomIntensity } = useControls({
     bloomThreshold: { value: 0.0, min: 0.0, max: 1.0 },
-    bloomIntensity: { value: 0.26, min: 0.0, max: 1.0 },
+    bloomIntensity: { value: 1.0, min: 0.0, max: 1.0 },
   });
   return (
     <EffectComposer>

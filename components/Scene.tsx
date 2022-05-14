@@ -18,7 +18,7 @@ export default function Scene() {
       <ambientLight />
       <Postprocess></Postprocess>
       <Center>
-        <Mesh name="Intro" rotation={rotation} scale={[2, 2, 2]}></Mesh>
+        <Mesh name="intro" rotation={rotation} scale={[2, 2, 2]}></Mesh>
       </Center>
       <Stars
         radius={starRadius}

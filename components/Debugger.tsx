@@ -14,5 +14,8 @@ export default function Debugger() {
 }
 
 export function isDev() {
-  return process.env.NODE_ENV === "development";
+  return (
+    process.env.NODE_ENV === "development" ||
+    process.env.VERCEL_ENV === "preview"
+  );
 }

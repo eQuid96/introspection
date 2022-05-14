@@ -1,10 +1,14 @@
 import { OrbitControls } from "@react-three/drei";
 import { Leva } from "leva";
 
-export default function Debugger() {
+export type DebuggerProps = {
+  devMode: boolean;
+};
+
+function Debugger({ devMode }: DebuggerProps) {
   return (
     <>
-      {isDev() ? (
+      {devMode ? (
         <OrbitControls makeDefault></OrbitControls>
       ) : (
         <Leva hidden={true}></Leva>
@@ -13,9 +17,4 @@ export default function Debugger() {
   );
 }
 
-export function isDev() {
-  return (
-    process.env.NODE_ENV === "development" ||
-    process.env.VERCEL_ENV === "preview"
-  );
-}
+export default Debugger;

@@ -4,7 +4,7 @@ import Mesh from "./Mesh";
 import Postprocess from "./Postprocess";
 import { useControls } from "leva";
 import Debugger from "./Debugger";
-export default function Scene() {
+export default function Scene({ props }: any) {
   const { starRadius, starCount, starSpeed, rotation } = useControls({
     starRadius: 90,
     starCount: 2500,
@@ -13,7 +13,7 @@ export default function Scene() {
   });
   return (
     <Canvas>
-      <Debugger></Debugger>
+      <Debugger devMode={props.devMode}></Debugger>
       <color attach="background" args={["black"]}></color>
       <ambientLight />
       <Postprocess></Postprocess>

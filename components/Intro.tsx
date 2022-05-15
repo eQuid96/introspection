@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { useControls } from "leva";
@@ -23,29 +23,20 @@ export default function Intro({ ...props }: JSX.IntrinsicElements["group"]) {
       rotation: [0, 3.12, -0.26],
     });
   const group = useRef<THREE.Group | null>(null);
-  const standarMat = new THREE.MeshStandardMaterial({
-    color: internalColor,
-  });
-
-  const wireframe = new THREE.MeshStandardMaterial({
-    wireframe: true,
-    color: wireframeColor,
-    emissive: wireframeColor,
-    emissiveIntensity: emissiveIntensity,
-  });
   const { nodes } = useGLTF("/assets/intro.gltf") as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh
-        geometry={nodes.Intro_geo.geometry}
-        rotation={rotation}
-        material={standarMat}
-      />
-      <mesh
-        geometry={nodes.Intro_geo.geometry}
-        rotation={rotation}
-        material={wireframe}
-      />
+      <mesh geometry={nodes.Intro_geo.geometry} rotation={rotation}>
+        <meshStandardMaterial color={internalColor}></meshStandardMaterial>
+      </mesh>
+      <mesh geometry={nodes.Intro_geo.geometry} rotation={rotation}>
+        <meshStandardMaterial
+          wireframe={true}
+          color={wireframeColor}
+          emissive={wireframeColor}
+          emissiveIntensity={emissiveIntensity}
+        ></meshStandardMaterial>
+      </mesh>
     </group>
   );
 }

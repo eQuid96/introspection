@@ -5,7 +5,7 @@ export type DebuggerProps = {
   devMode: boolean;
 };
 
-function Debugger({ devMode }: DebuggerProps) {
+function Debugger(devMode: DebuggerProps) {
   return (
     <>
       {devMode ? (

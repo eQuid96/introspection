@@ -29,14 +29,14 @@ export default function Intro({ ...props }: JSX.IntrinsicElements["group"]) {
       <mesh geometry={nodes.Intro_geo.geometry} rotation={rotation}>
         <meshStandardMaterial color={internalColor}></meshStandardMaterial>
       </mesh>
-      <mesh geometry={nodes.Intro_geo.geometry} rotation={rotation}>
+      <lineSegments rotation={rotation}>
+        <edgesGeometry args={[nodes.Intro_geo.geometry]}></edgesGeometry>
         <meshStandardMaterial
-          wireframe={true}
           color={wireframeColor}
           emissive={wireframeColor}
           emissiveIntensity={emissiveIntensity}
         ></meshStandardMaterial>
-      </mesh>
+      </lineSegments>
     </group>
   );
 }

@@ -7,11 +7,6 @@ body {
     background-color: #000000;
 }
 
-a,h1,p {
-  color: #ffffff;
-  text-decoration: none;
-}
-
 canvas{
   width: 100vw;
   height: 100vh;
@@ -19,4 +14,5 @@ canvas{
 
 * {
   box-sizing: border-box;
+  overflow: hidden;
 }

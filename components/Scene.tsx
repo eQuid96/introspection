@@ -11,11 +11,10 @@ export default function Scene({ props }: any) {
     starSpeed: 1,
   });
   return (
-    <Canvas>
+    <Canvas dpr={[1, 1.5]}>
       <Debugger devMode={props.devMode}></Debugger>
       <color attach="background" args={["black"]}></color>
       <ambientLight />
-      <Postprocess></Postprocess>
       <Center>
         <Intro></Intro>
       </Center>
@@ -28,6 +27,7 @@ export default function Scene({ props }: any) {
         fade
         speed={starSpeed}
       />
+      <Postprocess />
     </Canvas>
   );
 }
